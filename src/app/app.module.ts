@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
 import { FormularioEditComponent } from './components/formulario-edit/formulario-edit.component';
+import { FormularioAddComponent } from './components/formulario-add/formulario-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    FormularioEditComponent
+    FormularioEditComponent,
+    FormularioAddComponent
   ],
   imports: [
     BrowserModule,
