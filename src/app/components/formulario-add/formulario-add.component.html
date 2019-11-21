@@ -1,1 +1,73 @@
-<p>formulario-add works!</p>
+<!-- Form -->
+<div class="inner-wrapper">
+    <form (ngSubmit)="submitPersonForm()" #resetPersonForm="ngForm" novalidate>
+        <mat-card>
+            <div [formGroup]="personForm" class="controlers-wrapper">
+                <!-- Name -->
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="name" formControlName="person_name">
+                        <mat-error *ngIf="handleError('person_name', 'required')">
+                            You must provide a <strong>person name</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <!--Surname-->
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="surname" formControlName="person_surname">
+                        <mat-error *ngIf="handleError('person_surname', 'required')">
+                            You must provide a <strong>person surname</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!--Age-->
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Age" formControlName="person_age">
+                        <mat-error *ngIf="handleError('person_age', 'required')">
+                            You must provide a <strong>person age</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!--dni-->
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="id" formControlName="person_id">
+                        <mat-error *ngIf="handleError('person_id', 'required')">
+                            You must provide a <strong>person id</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!--Cumpleaños-->
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="birthday" formControlName="person_birthday">
+                        <mat-error *ngIf="handleError('person_birthday', 'required')">
+                            You must provide a <strong>person birthday</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!--Color-->
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="color" formControlName="person_color">
+                        <mat-error *ngIf="handleError('person_color', 'required')">
+                            You must provide a <strong>person color</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <!--Sexo-->
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="sexo" formControlName="person_sexo">
+                        <mat-error *ngIf="handleError('person_sexo', 'required')">
+                            You must provide a <strong>person sexo</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card>
+    </form>
+</div>
