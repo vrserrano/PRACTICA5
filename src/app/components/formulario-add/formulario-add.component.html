@@ -25,12 +25,13 @@
                 <!--Age-->
                 <div>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Edad" formControlName="edad_persona">
+                        <input matInput placeholder="Edad" id="edad" formControlName="edad_persona" onblur="return validarRango(this);" maxlength="3">
                         <mat-error *ngIf="handleError('edad_persona', 'required')">
                             Debe introducir su <strong> edad </strong>
                         </mat-error>
                     </mat-form-field>
                 </div>
+               
                 <!--dni-->
                 <div>
                     <mat-form-field class="example-full-width">
@@ -40,12 +41,15 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
+                           
                 <!--Cumpleaños-->
                 <div>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Cumpleaños" formControlName="cumpleaños_persona">
+                        <input matInput placeholder="Cumpleaños" [matDatepicker]="picker" formControlName="cumpleaños_persona">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
                         <mat-error *ngIf="handleError('cumpleaños_persona', 'required')">
-                            Introduzca su fecha de <strong> cumpleaños </strong>
+                        Introduzca su fecha de <strong> cumpleaños </strong>
                         </mat-error>
                     </mat-form-field>
                 </div>
