@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 
 export interface Subject {
-  personName: string;
+  personaNombre: string;
 }
 
 @Component({
@@ -20,7 +20,7 @@ export class FormularioAddComponent implements OnInit {
   @ViewChild('chipList', { static: true }) chipList;
   @ViewChild('resetStudentForm', { static: true }) myNgForm;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  personForm: FormGroup;
+  personaFormulario: FormGroup;
   subjectArray: Subject[] = [];
 
   ngOnInit() {
@@ -35,20 +35,20 @@ export class FormularioAddComponent implements OnInit {
 
   /* Reactive book form */
   submitForm() {
-    this.personForm = this.fb.group({
-      person_name: ['', [Validators.required]],
-      person_surname: ['', [Validators.required]],
-      person_age: ['', [Validators.required]],
-      person_id: ['', [Validators.required]],
-      person_birthday: ['', [Validators.required]],
-      person_color: ['', [Validators.required]],
-      person_sexo: ['', [Validators.required]]
+    this.personaFormulario = this.fb.group({
+      nombre_persona: ['', [Validators.required]],
+      apellidos_persona: ['', [Validators.required]],
+      edad_persona: ['', [Validators.required]],
+      dni_persona: ['', [Validators.required]],
+      cumpleaños_persona: ['', [Validators.required]],
+      color_persona: ['', [Validators.required]],
+      sexo_persona: ['', [Validators.required]]
 
     })
 
   }
   public handleError = (controlName: string, errorName: string) => {
-    return this.personForm.controls[controlName].hasError(errorName);
+    return this.personaFormulario.controls[controlName].hasError(errorName);
   }
 
 
