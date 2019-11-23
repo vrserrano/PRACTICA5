@@ -9,6 +9,7 @@ import { FormularioAddComponent } from './components/formulario-add/formulario-a
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ServicioFormularioService } from './services/servicio-formulario.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    ServicioFormularioService
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

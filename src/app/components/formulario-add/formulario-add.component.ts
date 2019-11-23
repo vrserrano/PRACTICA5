@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, NgZone, ErrorHandler } from '@angular/cor
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { ServicioFormularioService } from 'src/app/services/servicio-formulario.service';
 
 export interface Subject {
   personaNombre: string;
@@ -26,11 +27,11 @@ export class FormularioAddComponent implements OnInit {
   ngOnInit() {
     this.submitForm();
   }
-  constructor(
+  constructor(  
     public fb: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
-
+    private services: ServicioFormularioService
   ) { }
 
   /* Reactive book form */
