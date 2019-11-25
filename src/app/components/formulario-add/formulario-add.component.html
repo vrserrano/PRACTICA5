@@ -1,6 +1,6 @@
 <!-- Formulario -->
 <div class="container">
-	<form>
+	<form (ngSubmit)="addPersona()">
 		<mat-card>
 			<h4>Añadir nuevo contacto</h4>
 			<div [formGroup]="personaFormulario" class="controlers-wrapper">
@@ -80,11 +80,12 @@
 		</mat-card>
 
 		<!--boton añadir persona-->
-		<div class="container">
-			<mat-chip-list aria-label="nueva persona">
-				<mat-chip (click)="addPersona()" type="submit" routerLink="/listaContactos" [disabled]="!personaFormulario.valid">Añadir Persona
-				</mat-chip>
-			</mat-chip-list>
-		</div>
+		<mat-card>
+			<div class="full-wrapper button-wrapper">
+			  <div class="button-wrapper">
+				<button mat-raised-button color="primary" [disabled]="personaFormulario.invalid" type="submit">	Añadir Contacto</button>
+			  </div>
+			</div>
+		  </mat-card>
 	</form>
 </div>

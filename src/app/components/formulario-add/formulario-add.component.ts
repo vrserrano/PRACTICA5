@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ServicioFormularioService } from 'src/app/services/servicio-formulario.service';
 import { Persona } from '../../models/persona.model'; // se importa el modelo de datos de persona
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-formulario-add',
@@ -18,7 +19,8 @@ export class FormularioAddComponent implements OnInit {
 	}
 	constructor(
 		public fb: FormBuilder,
-		private servicioFormulario: ServicioFormularioService  // se vincula el servicio con el componente
+		private servicioFormulario: ServicioFormularioService, // se vincula el servicio con el componente
+		private router: Router
 	) { }
 
 	formValidations() {
@@ -43,6 +45,7 @@ export class FormularioAddComponent implements OnInit {
 			this.personaFormulario.get("color_persona").value,
 			this.personaFormulario.get("sexo_persona").value,
 		));
+		this.router.navigateByUrl('')
 	}
 }
 
