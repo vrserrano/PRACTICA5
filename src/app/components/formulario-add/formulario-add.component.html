@@ -1,87 +1,90 @@
 <!-- Formulario -->
 <div class="container">
-    <form (ngSubmit)="submitPersonaFormulario()" #resetPersonaFormulario="ngForm" novalidate>
-        <mat-card>
-            <div [formGroup]="personaFormulario" class="controlers-wrapper">
-                <!-- Name -->
-                <div>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Nombre" formControlName="nombre_persona">
-                        <mat-error *ngIf="handleError('nombre_persona', 'required')">
-                            Debe escribir su <strong> nombre</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
+	<form>
+		<mat-card>
+			<h4>Añadir nuevo contacto</h4>
+			<div [formGroup]="personaFormulario" class="controlers-wrapper">
+				<!--nombre-->
+				<div>
+					<mat-form-field>
+						<input matInput class="form-control" type="text" placeholder="Nombre"
+							[formControl]="personaFormulario.controls['nombre_persona']">
+						<mat-error *ngIf="this.personaFormulario.controls['nombre_persona'].hasError('required')">
+							Debe escribir su <strong> nombre</strong>
+						</mat-error>
+					</mat-form-field>
+				</div>
+				<!--apellidos-->
+				<div>
+					<mat-form-field>
+						<input matInput class="form-control" type="text" placeholder="Apellidos"
+							[formControl]="personaFormulario.controls['apellidos_persona']">
+						<mat-error *ngIf="this.personaFormulario.controls['apellidos_persona'].hasError('required')">
+							Debe escribir sus <strong>apellidos</strong>
+						</mat-error>
+					</mat-form-field>
+				</div>
+				<!--edad-->
+				<div>
+					<mat-form-field>
+						<input matInput class="form-control" type="number" placeholder="Edad"
+							[formControl]="personaFormulario.controls['edad_persona']">
+						<mat-error *ngIf="this.personaFormulario.controls['edad_persona'].hasError('required')">
+							Debe introducir su <strong> edad </strong>
+						</mat-error>
+					</mat-form-field>
+				</div>
+				<!--dni-->
+				<div>
+					<mat-form-field>
+						<input matInput class="form-control" type="text" placeholder="DNI"
+							[formControl]="personaFormulario.controls['dni_persona']">
+						<mat-error *ngIf="this.personaFormulario.controls['dni_persona'].hasError('required')">
+							Debe introducir su <strong> dni. </strong>
+						</mat-error>
+					</mat-form-field>
+				</div>
+				<!--cumpleaños-->
+				<div>
+					<mat-form-field>
+						<input matInput class="form-control" placeholder="Cumpleaños" [matDatepicker]="picker"
+							[formControl]="personaFormulario.controls['cumpleanos_persona']">
+						<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+						<mat-datepicker #picker></mat-datepicker>
+						<mat-error *ngIf="this.personaFormulario.controls['cumpleanos_persona'].hasError('required')">
+							Introduzca su fecha de <strong> cumpleaños </strong>
+						</mat-error>
+					</mat-form-field>
+				</div>
+				<!--color-->
+				<div>
+					<mat-form-field>
+						<input matInput class="form-control" type="text" placeholder="Color Favorito"
+							[formControl]="personaFormulario.controls['color_persona']">
+						<mat-error *ngIf="this.personaFormulario.controls['color_persona'].hasError('required')">
+							Debe introducir su <strong> color favorito</strong>
+						</mat-error>
+					</mat-form-field>
+				</div>
+				<!--sexo-->
+				<div>
+					<label id="label_persona_sexo">Sexo:</label>
+					<mat-radio-group aria-labelledby="label_persona_sexo" class="list-radio-group"
+						[formControl]="personaFormulario.controls['sexo_persona']">
+						<mat-radio-button class="list-radio-button" *ngFor="let sexo of sexos" [value]="sexo">
+							{{sexo}}
+						</mat-radio-button>
+					</mat-radio-group>
+				</div>
+			</div>
+		</mat-card>
 
-                <!--Apellidos-->
-                <div>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Apellidos" formControlName="apellidos_persona">
-                        <mat-error *ngIf="handleError('apellidos_persona', 'required')">
-                            Debe escribir sus <strong>apellidos</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <!--edad-->
-                <div>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Edad" id="edad" formControlName="edad_persona" onblur="return validarRango(this);" maxlength="3">
-                        <mat-error *ngIf="handleError('edad_persona', 'required')">
-                            Debe introducir su <strong> edad </strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-               
-                <!--dni-->
-                <div>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="DNI" formControlName="dni_persona">
-                        <mat-error *ngIf="handleError('dni_persona', 'required')">
-                            Debe introducir su <strong> dni. </strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                           
-                <!--Cumpleaños-->
-                <div>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Cumpleaños" [matDatepicker]="picker" formControlName="cumpleaños_persona">
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
-                        <mat-error *ngIf="handleError('cumpleaños_persona', 'required')">
-                        Introduzca su fecha de <strong> cumpleaños </strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <!--Color-->
-                <div>
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Color favorito" formControlName="color_persona">
-                        <mat-error *ngIf="handleError('color_persona', 'required')">
-                            Debe introducir su <strong> color favorito</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <!--Sexo-->
-                <div>
-
-                    <label>Sexo: </label>
-                    <br>
-                    <mat-radio-group >
-                        <mat-radio-button value="Hombre">Hombre</mat-radio-button> &nbsp;
-                        <mat-radio-button value="Mujer">Mujer</mat-radio-button> &nbsp;
-                        <mat-radio-button value="Otro">Otro</mat-radio-button> &nbsp;
-                        <mat-radio-button value="No especificado">No especificado</mat-radio-button> &nbsp;
-                    </mat-radio-group>
-                </div>
-            </div>
-        </mat-card>
-
-        <!--boton añadir persona-->
-        <div class= "container">
-        <mat-chip-list aria-label="person selection">
-            <mat-chip>Añadir Persona</mat-chip>
-        </mat-chip-list>
-    </div>
-    </form>
+		<!--boton añadir persona-->
+		<div class="container">
+			<mat-chip-list aria-label="nueva persona">
+				<mat-chip (click)="addPersona()" type="submit" routerLink="/listaContactos" [disabled]="!personaFormulario.valid">Añadir Persona
+				</mat-chip>
+			</mat-chip-list>
+		</div>
+	</form>
 </div>

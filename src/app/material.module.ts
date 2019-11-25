@@ -18,6 +18,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
    imports: [
@@ -30,6 +31,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
       MatListModule,
       MatGridListModule,
       MatFormFieldModule,
+      MatMenuModule,
       MatInputModule,
       MatSelectModule,
       MatRadioModule,
@@ -47,6 +49,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
       MatSidenavModule,
       MatBadgeModule,
       MatListModule,
+      MatMenuModule,
       MatGridListModule,
       MatInputModule,
       MatFormFieldModule,

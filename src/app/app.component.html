@@ -1,17 +1,16 @@
 <!-- Cabecera -->
-<mat-toolbar color="primary" class="header">
-        <div>Agenda</div>
-        <span class="nav-tool-items">
-        </span>
-      </mat-toolbar>
+<mat-toolbar color="primary" class="header" role="heading">
+  <mat-toolbar-col>
+    <button mat-button routerLink="/">Inicio</button>
+    <button mat-button [matMenuTriggerFor]="menu">Menú</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/nuevoContacto" routerLinkActive="active">Nuevo contacto</button>
+      <button mat-menu-item routerLink="/listaContactos" routerLinkActive="active">Lista de contactos</button>
+    </mat-menu>
+  </mat-toolbar-col>
+  <mat-toolbar-col class="toolbar-usar-todo-espacio" style="text-align: center;">
+    <div>Agenda de Verónica Rodríguez Serrano</div>
+  </mat-toolbar-col>
+</mat-toolbar>
 
-     
-
-
-
-
-      <!--Listado partes de agenda-->
-<app-formulario-add></app-formulario-add>
-<app-formulario-edit></app-formulario-edit>
-<app-list></app-list>
 <router-outlet></router-outlet>

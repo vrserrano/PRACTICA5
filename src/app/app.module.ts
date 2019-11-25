@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServicioFormularioService } from './services/servicio-formulario.service';
+import { MAT_DATE_LOCALE } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -24,10 +25,11 @@ import { ServicioFormularioService } from './services/servicio-formulario.servic
     BrowserAnimationsModule,
     AngularMaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
-    ServicioFormularioService
+    ServicioFormularioService,
+    {provide: MAT_DATE_LOCALE, useValue: 'es-ES'} // esto se usa para que la fecha en el calendario salga como dd/mm/aaaa
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
